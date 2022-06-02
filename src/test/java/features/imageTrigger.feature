@@ -10,5 +10,12 @@ Feature: Test the Login Functionality of Rezolve
     When user clicks Trigger option
     Then user is displayed the Create An Engagement page
     And  user clicks Image Button
-    And Close the browser
+    Then upload the image
+    When the user clicks on the target page button
+    And selects Buy option
+    And creates a new buy target
+    Then confirm and publish the changes
+    And the user completes the payment information required
+    And selects the pay button
+    #And Close the browser
 

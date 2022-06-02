@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.LoginPage;
 
+import java.awt.*;
 import java.util.logging.Logger;
 
 public class loginStepDef extends BaseClass {
@@ -82,12 +83,49 @@ public class loginStepDef extends BaseClass {
         Assert.assertEquals("Rezolve Create", LP.getPageTitle());
     }
 
-    @And("user clicks Audio Button")
-    public void userClicksAudioButton() {
-        logger.info("****************User is navigated to AudioPage**************");
-        LP.clickAudioButton();
-        Assert.assertEquals("Rezolve Create", LP.getPageTitle());
+    @Then("upload the image")
+    public void upload_the_image() throws InterruptedException, AWTException {
+
+        LP.selectImage();
+        logger.info("****************Image selected**************");
+
     }
+
+    @When("the user clicks on the target page button")
+    public void the_user_clicks_on_the_target_page_button() throws InterruptedException {
+        LP.targetPageButton();
+        logger.info("****************Target Page Button Selected**************");
+    }
+
+    @When("selects Buy option")
+    public void selects_buy_option() {
+        LP.buyPageButton();
+        logger.info("****************Buy Option Selected**************");
+    }
+
+    @When("creates a new buy target")
+    public void creates_a_new_buy_target() {
+        LP.createBuyTarget();
+        logger.info("****************Buy new Target Details Entered**************");
+    }
+
+    @Then("confirm and publish the changes")
+    public void confirm_and_publish_the_changes() throws InterruptedException {
+        LP.confirmAndPublish();
+        logger.info("****************Confirmed And Publish Button Selected**************");
+    }
+
+    @Then("the user completes the payment information required")
+    public void the_user_completes_the_payment_information_required() {
+        LP.paymentDetails();
+        logger.info("****************Payment Details Entered**************");
+    }
+
+    @Then("selects the pay button")
+    public void selects_the_pay_button() {
+
+    }
+
 
     @Then("Close the browser")
     public void close_the_browser() {

@@ -8,13 +8,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitHelper {
     public WebDriver driver;
-    public WaitHelper(WebDriver driver){
+    public WebDriverWait wait;
 
-        this.driver =driver;
+    public WaitHelper(WebDriver driver) {
+
+        this.driver = driver;
     }
 
-    public void WaitForElement(WebElement element, long timeOutInSeconds){
-        WebDriverWait wait = new WebDriverWait(driver,timeOutInSeconds);
+    public void WaitForElement(WebElement element, long timeOutInSeconds) {
+        wait = new WebDriverWait(driver, timeOutInSeconds);
         wait.until(ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public void WaitForElementClickable(WebElement element, long timeOutInSeconds) {
+        wait = new WebDriverWait(driver, timeOutInSeconds);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 }

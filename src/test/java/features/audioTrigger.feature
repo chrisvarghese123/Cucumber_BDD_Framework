@@ -10,5 +10,6 @@ Feature: Test the Login Functionality of Rezolve
     When user clicks Trigger option
     Then user is displayed the Create An Engagement page
     And  user clicks Audio Button
-    And Close the browser
+    And user upload the audio file for audio trigger
+    #And Close the browser
 
